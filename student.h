@@ -28,6 +28,7 @@ class student{
     //functions
     ~student();     //default destructor
     void operator=(const student&);     //deep copy assignment
+    void loadStudent();
     
 
     

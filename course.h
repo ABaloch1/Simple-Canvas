@@ -1,7 +1,8 @@
 #include "student.h"
 
 class course{
-    
+    friend ostream& operator<<(ostream&, course&);
+
     public:
     //default constructor
     course();
@@ -18,6 +19,7 @@ class course{
     const int getMax() const;
     const int getCurrent() const;
     const student* getRosterlist() const;
+    const int getStuSize() const;
 
 
     //setters
@@ -32,23 +34,32 @@ class course{
 
     //functions
     void operator=(const course& selectedcourse);
-
     
-   
-    void findStudentID() const;
     void createStudent();
-    void addStudent(const student& person);
+    void addStudent();
     void growStudentSize();
+    //finding id of student
+    void findStudentID() const;
+    int FindID(int aID) const;
+    //finding name of student
+    void findStudentName() const;
+    int findName(const char* findname) const;
 
-    int FindID(int* aID) const;
+    //function to find student in a list of courses
+    void findStudent() const;
 
+    //creating a course
+    void loadCoarse();
 
-
+    //removing students from a course
+    void updateStudent();
+    //remove
+    void removeStudent();
 
     private:
     char* courseName;
-    char courseCode[7];
-    char location[10];
+    char courseCode[8];
+    char location[11];
     int maxSize;
     int currentSize;
     student* rosterlist;
